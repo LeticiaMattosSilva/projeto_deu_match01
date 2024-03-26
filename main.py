@@ -6,6 +6,24 @@ candidatos = [
     {'nome': 'Wanda Costa Nascimento', 'nota_entrevista': 5, 'nota_tst_teorico': 6, 'teste_pratico': 5.5, 'nota_soft': 8},
     {'nome': 'Carine Almeida de Jesus', 'nota_entrevista': 7, 'nota_tst_teorico': 5, 'teste_pratico': 9, 'nota_soft': 6}
 ]
+
+# Função que filtra os candidatos
+def filtrar_candidatos(nome, nota_entrevista, nota_tst_teorico, teste_pratico, nota_soft):
+
+                #lista para armazenar resultados
+                candidatos_filtrados = []
+
+                #aqui a função passa por cada item da lista verificando se está o critério, se sim ela deposita na lista
+                for candidato in candidatos:
+                    if (candidato['nota_entrevista'] >= nota_entrevista and
+                            candidato['nota_tst_teorico'] >= nota_tst_teorico and
+                            candidato['teste_pratico'] >= teste_pratico and
+                            candidato['nota_soft'] >= nota_soft):
+
+                        candidatos_filtrados.append(candidato)
+                return candidatos_filtrados
+
+
 #laço de repetição infinito
 while True:
     print('-=-'*20)
@@ -26,27 +44,12 @@ while True:
                      'teste_pratico': teste_pratico, 'nota_soft': nota_soft}
 
         candidatos.append(candidato)
+        
         print('-=-' * 20)
         print('\n***** Candidato inserido no banco de dados. *****\n')
         print('-=-' * 20)
 
     elif opcao == '2':
-            def filtrar_candidatos(nome, nota_entrevista, nota_tst_teorico, teste_pratico, nota_soft):
-
-                #lista para armazenar resultados
-                candidatos_filtrados = []
-
-                #aqui a função passa por cada item da lista verificando se está o critério, se sim ela deposita na lista
-                for candidato in candidatos:
-                    if (candidato['nota_entrevista'] >= nota_entrevista and
-                            candidato['nota_tst_teorico'] >= nota_tst_teorico and
-                            candidato['teste_pratico'] >= teste_pratico and
-                            candidato['nota_soft'] >= nota_soft):
-
-                        candidatos_filtrados.append(candidato)
-                return candidatos_filtrados
-
-
             nota_entrevista = float(input("Digite a nota mínima na entrevista: "))
             nota_tst_teorico = float(input("Digite a nota mínima no teste teorico: "))
             teste_pratico = float(input("Digite a nota mínima no teste prático: "))
